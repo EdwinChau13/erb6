@@ -2,6 +2,6 @@ from django.urls import path
 from . import views
 app_name="pages"
 urlpatterns = [
-    path('', views.index, name='index'),  # is localhost:8000/
-    path('about', views.about, name='about') # Endpoint, function name, reverse lookup
+    path('', views.index, name='index'),  # Endpoint empty will direct to index page
+    path('about', views.about, name='about') # endpoint, function, reverse lookup
 ]
