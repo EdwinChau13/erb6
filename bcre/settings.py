@@ -51,6 +51,9 @@ INTERNAL_IPS = [
     "127.0.0.1",
 ]
 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -87,8 +90,13 @@ WSGI_APPLICATION = 'bcre.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        # 'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'bcredb',  # Default to 'bcredb' if not set in .env
+        'USER': 'postgres',  # Default PostgreSQL user
+        'PASSWORD': os.getenv('DB_PASSWORD'),
+        'HOST': 'localhost',
     }
 }
 
