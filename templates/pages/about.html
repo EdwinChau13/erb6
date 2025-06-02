@@ -32,23 +32,66 @@
               harum perferendis laborum molestias quia.
             </p>
           </div>
+          {% if mvp_realtors%}
           <div class="col-md-4">
+            {% comment %} {%for realtor in realtors%} {% endcomment %}
+            {% for realtor in mvp_realtors %}
             <div class="card">
               <img
                 class="card-img-top"
-                src="{% static 'img/realtors/jenny.jpg' %}"
+                {% comment %} src="{% static 'img/realtors/jenny.jpg' %}" {% endcomment %}
+                src="{{realtor.photo.url}}"
                 alt="Seller of the month"
               />
               <div class="card-body">
                 <h5 class="card-title">Seller Of The Month</h5>
-                <h6 class="text-secondary">Jenny</h6>
+                <h6 class="text-secondary">{{realtors.name}}</h6>
                 <p class="card-text">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis
-                  nesciunt amet, illo itaque similique repellat. content.
+                  {{realtor.description}}
                 </p>
               </div>
             </div>
+            {% endfor %}
           </div>
+          {% endif %}
+        </div>
+      </div>
+    </section>
+    
+    <!-- Work -->
+    <section id="work" class="bg-dark text-white text-center">
+      <h2 class="display-4">We Work For You</h2>
+      <h4>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem velit
+        aperiam, unde aliquid at similique!
+      </h4>
+      <hr />
+      <a href={% url 'listings:index' %} class="btn btn-secondary text-white btn-lg"
+        >View Our Featured Listings</a
+      >
+    </section>
+
+    <!-- Team -->
+    <section id="team" class="py-5">
+      <div class="container">
+        <h2 class="text-center">Our Team</h2>
+        <div class="row text-center">
+          {% for realtor in realtors %}
+          <div class="col-md-4">
+            <img
+              src={{realtor.photo.url}}
+              alt=""
+              class="rounded-circle mb-3"
+            />
+            <h4>{{realtor.name}}</h4>
+            <p class="text-success">
+              <i class="fas fa-award text-success mb-3"></i> Realtor
+            </p>
+            <hr />
+            <p><i class="fas fa-phone"></i> {{realtor.phone}}</p>
+            <p><i class="fas fa-envelope-open"></i> {{realtor.email}}</p>
+          </div>
+          {% endfor %}
         </div>
       </div>
     </section>
