@@ -28,8 +28,8 @@ SECRET_KEY = os.getenv('SITE_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
-ALLOWED_HOSTS = []
+# DEBUG = False
+# ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
 
 
 # Application definition
@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'pages.apps.PagesConfig', # New Register May 23
     'listings.apps.ListingsConfig', # Defined in listings/apps.py
     'realtors.apps.RealtorsConfig', # Defined in realtors/apps.py
+    # 'whitenoise.middleware.WhiteNoiseMiddleware',  # WhiteNoise middleware for serving static files in production
 ]
 
 INTERNAL_IPS = [
