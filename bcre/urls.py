@@ -25,6 +25,7 @@ urlpatterns = [
     path('listings/', include('listings.urls', namespace='listings')),
     path('accounts/', include('accounts.urls', namespace='accounts')),
     path('admin/', admin.site.urls),
+    path('contacts/', include('contacts.urls', namespace='contacts')),
 ] + debug_toolbar_urls()
 
 # for internal administration

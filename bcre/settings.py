@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'pages.apps.PagesConfig', # New Register May 23
     'listings.apps.ListingsConfig', # Defined in listings/apps.py
     'realtors.apps.RealtorsConfig', # Defined in realtors/apps.py
+    'contacts.apps.ContactsConfig',
     # 'whitenoise.middleware.WhiteNoiseMiddleware',  # WhiteNoise middleware for serving static files in production
 ]
 
